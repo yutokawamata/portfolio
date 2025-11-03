@@ -1,0 +1,74 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 1000; /* 他の要素より前面に表示 */
+    transition: padding 0.3s ease;
+  }
+
+  .header.scrolled {
+    
+  }
+
+  .header-logo { /* ロゴ画像の幅を80%にする */
+    width: 80%;
+    /* .header-logoがスクロールしたら縮小開始 */
+    transition: transform 0.3s ease, width 0.3s ease;
+  }
+  /* transform: 0.3s ease; は、アニメーションを0.3秒で行う */
+  /* width: 0.3s ease; は、幅のアニメーションを0.3秒で行う */
+
+  /* .headerがスクロールしたら.header-logoを60%に縮小する */
+  .header.scrolled .header-logo {
+    width: 60%; /* スクロールしたら60%に縮小 */
+    transform: scale(0.8); /* ロゴ画像を0.8倍に縮小する */
+  }
+
+  .header a:last-child {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .header-menu {
+    width: 80%;
+  }
+  
+  /* スマホ用 */
+  @media (max-width: 540px) {
+    .header {
+    }
+    
+    .header-logo {
+      width: 70%;
+    }
+
+    .header.scrolled .header-logo {
+      width: 50%;
+    }
+
+    .header-menu {
+        width: 70%;
+    }
+}
+  
+  /* PC用 */
+  @media (min-width: 1440px) {
+    .header {
+    }
+    .header-logo {
+      width: 90%;
+    }
+
+    .header.scrolled .header-logo {
+      width: 70%;
+    }
+
+    .header-menu {
+      width: 90%;
+    }
+  }
+  

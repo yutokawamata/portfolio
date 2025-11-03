@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px;
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 0 0;
+}
+
+.footer-menu p {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+/* スマホ用 */
+@media (max-width: var(--breakpoint-sm)) {
+  .footer {
+  }
+}
+
+/* PC用 */
+@media (min-width: var(--breakpoint-lg)) {
+  .footer {
+  }
+}
