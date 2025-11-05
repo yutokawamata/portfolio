@@ -1,4 +1,4 @@
-.header {
+  .header {
     position: fixed;
     top: 0;
     left: 0;
@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    z-index: 1000; /* 他の要素より前面に表示 */
+    z-index: 1001; /* ハンバーガーメニューより前面に表示 */
     transition: padding 0.3s ease;
   }
 
@@ -24,8 +24,8 @@
 
   /* .headerがスクロールしたら.header-logoを60%に縮小する */
   .header.scrolled .header-logo {
-    width: 60%; /* スクロールしたら60%に縮小 */
-    transform: scale(0.8); /* ロゴ画像を0.8倍に縮小する */
+    width: 50%; /* スクロールしたら60%に縮小 */
+    transform: scale(0.9); /* ロゴ画像を0.8倍に縮小する */
   }
 
   .header a:last-child {
@@ -43,15 +43,17 @@
     }
     
     .header-logo {
-      width: 70%;
-    }
-
-    .header.scrolled .header-logo {
       width: 50%;
     }
 
+    .header.scrolled .header-logo {
+      width: 40%; /* スクロールしたら60%に縮小 */
+      transform: scale(0.8); /* ロゴ画像を0.8倍に縮小する */
+      padding: -50px 0px 0px 0px;
+    }
+
     .header-menu {
-        width: 70%;
+        width: 30%;
     }
 }
   

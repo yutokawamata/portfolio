@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className="footer">
         <a href="">
-            <img src={instaicon} className="icon" alt="instaicon" />
+            <img src={instaicon} className="footer-icon" alt="instaicon" />
         </a>
         <div className="footer-menu">
             <p><a href="#works">works</a></p>

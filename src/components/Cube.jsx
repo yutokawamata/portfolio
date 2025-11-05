@@ -3,15 +3,51 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame } from "@react-three/fiber";
 
 const Cube = () => {
-  const { scene } = useGLTF('/models/cube1.glb')
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}models/cube1.glb`)
   const modelRef = useRef()
 
-  // オブジェクトのサイズと位置を設定
+  // ウィンドウサイズに応じてオブジェクトサイズを設定する関数
+  const updateScale = () => {
+    if (!modelRef.current) return
+
+    const width = window.innerWidth
+    
+    // 条件を小さい方から大きい方へ順序立てる
+    if (width < 540) {
+      // 540px以下: サイズ5
+      modelRef.current.scale.set(10, 10, 10)
+    } else if (width < 740) {
+      // 740px以下（540px超）: サイズ10
+      modelRef.current.scale.set(13, 13, 13)
+    } else {
+      // 740px超: デフォルトサイズ20
+      modelRef.current.scale.set(20, 20, 20)
+    }
+    
+    // 位置も設定
+    modelRef.current.position.y = 0
+  }
+
+  // オブジェクトが読み込まれた後に初期サイズを設定
   useEffect(() => {
-    // オブジェクトが存在する場合
-    if (modelRef.current) {
-      modelRef.current.scale.set(20, 20, 20) // オブジェクトのサイズを設定
-      modelRef.current.position.y = 0 // オブジェクトの位置を設定
+    if (modelRef.current && scene) {
+      // 初期表示時のサイズを設定
+      updateScale()
+    }
+  }, [scene])
+
+  // ウィンドウサイズ変更時にオブジェクトサイズを変更
+  useEffect(() => {
+    const handleResize = () => {
+      updateScale()
+    }
+
+    // リサイズイベントリスナーを追加
+    window.addEventListener('resize', handleResize)
+
+    // クリーンアップ: コンポーネントアンマウント時にイベントリスナーを削除
+    return () => {
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
 

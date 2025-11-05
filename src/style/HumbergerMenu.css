@@ -1,5 +1,6 @@
 .hamburger-container {
     position: relative;
+    z-index: 1002; /* ボタンとコンテナを最前面に */
 }
 
 .hamburger-overlay {
@@ -13,6 +14,7 @@
 }
 
 .humburger-button {
+    position: relative; /* z-indexを有効にするために必要 */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -23,7 +25,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001;
+    z-index: 1003; /* メニューより前面に表示 */
 }
 
 .hamburger-line {
@@ -32,6 +34,8 @@
     background: #000000;
     border-radius: 2px;
     transition: all 0.3s ease;
+    transform-origin: center; /* 回転の中心を中央に設定 */
+    display: block; /* ブロック要素として表示 */
 }
 
 .hamburger-menu {
@@ -42,7 +46,7 @@
     height: 100vh;
     background: #FFFFFF;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    z-index: 1000; /* オーバーレイより上、ボタンより下 */
     padding-top: 80px;
 }
 

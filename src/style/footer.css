@@ -16,13 +16,18 @@
   margin-left: 20px;
 }
 /* スマホ用 */
-@media (max-width: var(--breakpoint-sm)) {
-  .footer {
+@media (max-width: 540px) {
+  .footer-menu p {
+    font-size: 10px;
+    margin-left: 10px;
+  }
+  .footer-icon {
+    width: 50%;
   }
 }
 
 /* PC用 */
-@media (min-width: var(--breakpoint-lg)) {
+@media (min-width: 1440px) {
   .footer {
   }
 }

@@ -19,23 +19,23 @@ function HumburgerMenu() {
                 onClick={toggleMenu}
                 aria-label="メニュー"
             >
-                {/* ハンバーガーボタンの線 */}
+                {/* ハンバーガーボタンの線（上） */}
                 <motion.span 
                     className="hamburger-line"
-                    animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+                    animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
                     transition={{ duration: 0.3 }}
                 />
-                {/* ハンバーガーボタンの線 */}
+                {/* ハンバーガーボタンの線（中） */}
                 <motion.span 
                     className="hamburger-line"
                     animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
                     transition={{ duration: 0.3 }}
                 />
-                {/* ハンバーガーボタンの線 */}
+                {/* ハンバーガーボタンの線（下） */}
                 <motion.span 
                     className="hamburger-line"
-                    animate={isOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }} // アニメーション中は右に6px移動
-                    transition={{ duration: 0.3 }} // アニメーション時間
+                    animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                    transition={{ duration: 0.3 }}
                 />
             </motion.button>
             <AnimatePresence> {/* アニメーションを管理 */}
